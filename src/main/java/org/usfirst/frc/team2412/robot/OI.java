@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
 
+	
+	public Joystick driver = new Joystick(0);
 	public Joystick codriver = new Joystick(1);
 
 	public int intakeInButtonID = 0;
