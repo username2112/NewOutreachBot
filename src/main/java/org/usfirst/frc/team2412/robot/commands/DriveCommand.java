@@ -9,7 +9,7 @@ public class DriveCommand extends CommandBase {
 
 	@Override
 	protected void execute() {
-		drivebaseSubsystem.drive(RobotMap.oi.driver);
+		drivebaseSubsystem.drive(RobotMap.m_oi.driver);
 	}
 
 }

@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
+import org.usfirst.frc.team2412.robot.Constants;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
@@ -17,15 +18,23 @@ public class CannonFireSubsystem extends Subsystem {
 
 	public void fire() {
 		Thread fireThread = new Thread(() -> {
-			cannonRelay.set(Value.kOn);
+			openCannon();
 			try {
-				Thread.sleep(100);
+				Thread.sleep(Constants.CANNON_OPEN_TIME);
 			} catch (Exception e) {
 				System.err.println(e.getMessage());
 			}
-			cannonRelay.set(Value.kOff);
+			closeCannon();
 		});
 		fireThread.run();
+	}
+
+	public void openCannon() {
+		cannonRelay.set(Value.kOn);
+	}
+
+	public void closeCannon() {
+		cannonRelay.set(Value.kOff);
 	}
 
 }

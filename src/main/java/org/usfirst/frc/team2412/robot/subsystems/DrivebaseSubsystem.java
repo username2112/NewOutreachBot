@@ -17,6 +17,15 @@ public class DrivebaseSubsystem extends Subsystem {
 	}
 
 	public void drive(Joystick stick) {
-		drive.driveCartesian(-stick.getY(), stick.getX(), stick.getTwist());
+
+		double foward = -stick.getY();
+
+		double side = stick.getX();
+
+		double turn = stick.getTwist();
+
+		drive.driveCartesian(Math.pow(foward, 3), // Cube all values for smoother driving
+				Math.pow(side, 3), // and easier fine movement
+				Math.pow(turn, 3));
 	}
 }

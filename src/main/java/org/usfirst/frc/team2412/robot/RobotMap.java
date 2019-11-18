@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 public class RobotMap {
 
+	public static OI m_oi = new OI();
+
 	// Intake Stuff
 	public static int intakeMotorID1 = 5;
 	public static int intakeMotorID2 = 6;
@@ -36,5 +38,4 @@ public class RobotMap {
 	public static WPI_TalonSRX cannonMotor = new WPI_TalonSRX(cannonMotorID);
 	public static Relay cannonRelay = new Relay(cannonRelayID);
 
-	public static OI oi = new OI();
 }

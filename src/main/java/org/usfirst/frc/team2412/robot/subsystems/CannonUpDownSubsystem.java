@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
+import org.usfirst.frc.team2412.robot.Constants;
 import org.usfirst.frc.team2412.robot.commands.CannonAxisCommand;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -20,18 +21,18 @@ public class CannonUpDownSubsystem extends Subsystem {
 	}
 
 	public void cannonUp() {
-		cannonMotor.set(1);
+		cannonMotor.set(Constants.CANNON_MAX_SPEED);
 	}
 
 	public void cannonDown() {
-		cannonMotor.set(-1);
+		cannonMotor.set(-Constants.CANNON_MAX_SPEED);
 	}
 
 	public void cannonHold() {
 		// PID functionality?
 		cannonMotor.set(0);
 	}
-	
+
 	public void cannonAxis(Joystick stick) {
 		cannonMotor.set(stick.getY());
 	}

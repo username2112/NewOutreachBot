@@ -8,10 +8,11 @@ public class CannonAxisCommand extends CommandBase {
 		requires(cannonUpDownSubsystem);
 	}
 
+	@Override
 	public void execute() {
-		if (!(RobotMap.oi.codriver.getRawButton(RobotMap.oi.cannonDownButtonID)
-				|| RobotMap.oi.codriver.getRawButton(RobotMap.oi.cannonUpButtonID))) {
-			cannonUpDownSubsystem.cannonAxis(RobotMap.oi.codriver);
+		if (!(RobotMap.m_oi.codriver.getRawButton(RobotMap.m_oi.cannonDownButtonID)
+				|| RobotMap.m_oi.codriver.getRawButton(RobotMap.m_oi.cannonUpButtonID))) {
+			cannonUpDownSubsystem.cannonAxis(RobotMap.m_oi.codriver);
 		}
 	}
 

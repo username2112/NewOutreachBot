@@ -8,9 +8,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
 
+	public int driverPort = 0;
+	public int codriverPort = 1;
+
 	// Joysticks
-	public Joystick driver = new Joystick(0); //Main Driver Stick 
-	public Joystick codriver = new Joystick(1); //Codriver, axis can control cannon
+	public Joystick driver = new Joystick(driverPort); // Main Driver Stick
+	public Joystick codriver = new Joystick(codriverPort); // Codriver, axis can control cannon
 
 	// Intake Subsystem Buttons
 	public int intakeInButtonID = 0;
@@ -28,7 +31,7 @@ public class OI {
 
 	public int cannonFireButtonID = 4;
 	public Button cannonFireButton = new JoystickButton(codriver, cannonFireButtonID);
-	
+
 	public int cannonFireTriggerID = 0;
 	public Button cannonFireTrigger = new JoystickButton(driver, cannonFireTriggerID);
 
@@ -41,6 +44,6 @@ public class OI {
 		cannonDownButton.whileHeld(new CannonDownCommand());
 
 		cannonFireButton.whenReleased(new CannonFireCommand());
-		cannonFireTrigger.whenReleased(new CannonFireCommand());
+		cannonFireTrigger.whenPressed(new CannonFireStayCommand());
 	}
 }
